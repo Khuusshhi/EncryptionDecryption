@@ -1,0 +1,72 @@
+function encrypt()
+    printf("\n---------------------------------------------\n")
+    x=input("Enter Phrase To Be Encrypted: ","string")
+    o=input("Enter offset value: ")
+    a=ascii(x)
+    for i=1:length(a)
+    c=a(i)
+        if c>96 && c<123 then
+          c=c+o   //small
+          if c>122 then
+            c=c-122+97-1
+          end
+        a(i)=c
+        elseif c>64 && c<91 then//capital
+            c=c+o
+            if c>90 then
+                c=c-90+65-1
+            end
+            a(i)=c
+        else
+            c=32
+        end
+        a(i)=c
+end
+y=ascii(a)
+printf("Encrypted Phrase: %s",y)
+printf("\n---------------------------------------------\n")
+endfunction
+function decrypt()
+    printf("\n---------------------------------------------\n")
+    x=input("Enter Phrase To Be Decrypted: ","string")
+    o=input("Enter offset value: ")
+    a=ascii(x)
+    for i=1:length(a)
+        c=a(i)
+        if c>96 && c<123 then //small
+            c=c-o
+            if c<97 then
+                c=c+122-97+1
+            end
+            a(i)=c
+        elseif c>64 && c<91 then //capital
+            c=c-o
+            if c<65 then
+                c=c+90-65+1
+            end
+            a(i)=c
+        else
+            c=32
+        end
+        a(i)=c
+end
+y=ascii(a)
+printf("Decrypted Phrase: %s",y)
+printf("\n---------------------------------------------\n")
+endfunction
+
+while 3>2
+    printf("\n1:Encrypt\n2:Decrypt\n3:Exit")
+x=input("Enter choice: ")
+switch(x)
+    case(1)
+        encrypt()
+    case(2)
+        decrypt()
+    case(3)
+        exit(0)
+    otherwise
+        printf("Enter valid choice")
+end
+end
+    

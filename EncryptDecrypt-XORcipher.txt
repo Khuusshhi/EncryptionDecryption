@@ -1,0 +1,71 @@
+printf("-------XOR CIPHER-------")
+x=input("Enter a phrase to be encrypted:","string")
+a=ascii(x)
+    s=emptystr();
+    for j=1:length(a)
+        d=dec2bin(a(j))
+        s=s+d;  
+    end
+ printf("%s",s)
+
+key=input("Enter key(character):","string")
+b=ascii(key)
+    for j=1:length(b)
+        f=dec2bin(b(j))
+        printf("%s",f)
+    end
+
+
+if (length(s)==length(f)) then
+    s=bin2dec(s)
+    f=bin2dec(f)
+    g=bitxor(s,f)
+    g=dec2bin(g)
+    printf("\nResult of encryption is: %s",g)
+    
+elseif (length(s)>length(f)) then
+    i=length(s)-length(f)
+    while i
+        f="0"+f
+        i=i-1
+    end
+    //printf("concenate: %s",f)
+    s=bin2dec(s)
+    f=bin2dec(f)
+    g=bitxor(s,f)
+    g=dec2bin(g)
+    printf("\nResult of encryption is: %s",g)
+else
+    printf("Wrong input")
+end
+
+/*printf("\nFor decryption")
+key1=input("Enter same key as for encryption(character):","string")
+b1=ascii(key1)
+    for j1=1:length(b1)
+        f1=dec2bin(b1(j1))
+        printf("%s",f1)
+    end
+
+if (length(g)==length(f1)) then
+    g=bin2dec(g)
+    f1=bin2dec(f1)
+    h=bitxor(g,f1)
+    h=string(h)
+    printf("\nResult of decryption is: %s",h)
+    
+elseif (length(g)>length(f1)) then
+    i=length(g)-length(f1)
+    while i
+        f1="0"+f1
+        i=i-1
+    end
+    //printf("concenate: %s",f)
+    g=bin2dec(g)
+    f1=bin2dec(f1)
+    h=bitxor(g,f1)
+    h=string(h)
+    printf("\nResult of decryption is: %s",h)
+else
+    printf("Wrong input")
+end*/
